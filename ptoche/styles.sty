@@ -1,0 +1,100 @@
+\ProvidesPackage{styles}[settings for MIT SDS capstone cheatsheets]
+\NeedsTeXFormat{LaTeX2e}
+
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{fontspec}
+\RequirePackage[english]{babel}
+\RequirePackage[svgnames]{xcolor}
+\RequirePackage{graphicx}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg,.jpeg}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+\RequirePackage{mathtools} %\overbracket, \dfrac
+\RequirePackage{verbatim}% comment out portions
+\RequirePackage{latexsym}
+\RequirePackage{marvosym}
+\RequirePackage{pifont}
+\RequirePackage{tikz}
+\RequirePackage{pgfplots}
+\pgfplotsset{compat=newest}% set compatibility to latest version of pgfplots
+\RequirePackage{calc}
+\usetikzlibrary{calc}% add to coordinates, e.g. ($(A)+(1,0)$)
+\RequirePackage{xfp}% do math calculations
+\usetikzlibrary{math}% simple functions
+\usepgfplotslibrary{fillbetween}
+\RequirePackage{float}% figure placement with [H] option
+\RequirePackage{tabularray}%
+\UseTblrLibrary{booktabs}
+
+
+% lists
+\RequirePackage{enumitem}
+% itemize symbols
+\newcommand{\thickdash}{\rule[0.5ex]{5pt}{1pt}} % Adjust height, width, and thickness as needed
+\setlist{noitemsep,label={\thickdash}}
+\pagenumbering{gobble}% suppress page numbering
+%\pagestyle{empty}% no header/footer
+
+
+% line skip but no paragraph indent
+\RequirePackage[parfill]{parskip}
+
+% paragraph indent
+%\setlength{\parindent}{0pt}
+
+% paragraph skip
+%\setlength{\parskip}{0pt plus 0.5ex}
+
+% remove space around align environment
+\setlength{\abovedisplayskip}{0pt}
+\setlength{\belowdisplayskip}{0pt}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{0pt}
+
+% define section title colors
+\colorlet{sectioncolor}{NavyBlue}
+\colorlet{subsectioncolor}{MediumBlue}
+\colorlet{subsubsectioncolor}{RoyalBlue}
+% remove section title colors
+\newcommand{\SuppressSectionColors}{%
+  \colorlet{sectioncolor}{black}
+  \colorlet{subsectioncolor}{black}
+  \colorlet{subsubsectioncolor}{black}
+}%
+
+% set section spaces
+\RequirePackage{titlesec}
+% default: \titlespacing*{\section}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+\titlespacing{\section}{0pt}{2.0ex plus .5ex minus .2ex}{1.0ex plus .2ex}
+\titleformat{\section}
+  {\color{sectioncolor}\normalfont\scshape\large\bfseries}
+  {\thesection}
+  {1em}
+  {}
+% default: \titlespacing*{\subsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\titlespacing{\subsection}{0pt}{1.75ex plus .5ex minus .2ex}{0.75ex plus .2ex}
+\titleformat{\subsection}
+  {\color{subsectioncolor}\normalfont\normalsize\bfseries}
+  {\thesubsection}
+  {1em}
+  {}
+% default: \titlespacing*{\subsubsection}{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing{\subsubsection}{0pt}{1.5ex plus .5ex minus .2ex}{0.5ex plus .2ex}
+\titleformat{\subsubsection}[runin]% [runin] suppresses line break
+  {\color{subsubsectioncolor}\normalfont\small\bfseries}
+  {\thesubsubsection}
+  {1em}
+  {}
+
+% remove section title numbers
+\newcommand{\SuppressSectionNumbers}{%
+  \makeatletter
+  \let\oldsection\section
+  \renewcommand\section{\@ifstar{\oldsection}{\oldsection*}}
+  \let\oldsubsection\subsection
+  \renewcommand\subsection{\@ifstar{\oldsubsection}{\oldsubsection*}}
+  \let\oldsubsubsection\subsubsection
+  \renewcommand\subsubsection{\@ifstar{\oldsubsubsection}{\oldsubsubsection*}}
+  \makeatother
+}%

@@ -1,0 +1,77 @@
+\section{Common distributions}
+
+\begin{table}[H]
+\centering
+\begin{tblr}{
+  width = \linewidth,
+  colspec = {*{4}{X[l,mode=math]}},
+  row{1} = {mode=text,font=\bfseries},
+  rowsep = 1ex,
+%  stretch = 0.2,
+}
+\toprule
+Distribution
+  & Mean
+    & Variance
+      & PMF/PDF
+\\
+\midrule
+& \SetCell[c=3]{c}{\textbf{Discrete}}
+\\
+\cmidrule{2-4}
+\UniformDistribution{a}{b}
+  & \frac{a+b}{2}
+    & \frac{(b-a)(b-a+2)}{12}
+      & \frac{1}{b-a+1}
+\\
+\BernoulliDistribution{p}
+   & p
+    & p(1-p)
+      & p^{x}(1-p)^{1-x}
+\\
+\BinomialDistribution{n}{p}
+  & np
+    & np(1-p)
+      & \binom{n}{k} p^{k} (1-p)^{n-k}
+\\
+\GeometricDistribution{p}
+  & \frac{1}{p}
+    & \frac{1-p}{p^{2}}
+      & p(1-p)^{k-1}
+\\
+\PoissonDistribution{\lambda}
+  & \lambda
+    & \lambda
+      & \frac{\lambda^{k} e^{-\lambda}}{k!}
+\\
+& \SetCell[c=3]{c}{\textbf{Continuous}}
+\\
+\cmidrule{2-4}
+\UniformDistribution{a}{b}
+  & \frac{a+b}{2}
+    & \frac{(b-a)^{2}}{12}
+      & \frac{1}{b-a}
+\\
+\NormalDistribution{\mu}{\sigma^{2}}
+  & \mu
+    & \sigma^{2}
+      & \frac{1}{\sqrt{2\pi\sigma^{2}}} \exp{\left(-\frac{(x-\mu)^{2}}{2 \sigma^{2}}\right)}
+\\
+\ExponentialDistribution{\lambda}
+  & \frac{1}{\lambda}
+    & \frac{1}{\lambda^{2}}
+      & \lambda e^{-\lambda x}
+\\
+\BetaDistribution{\alpha}{\beta}
+  & \frac{\alpha}{\alpha+\beta}
+    & \frac{\alpha\beta}{(\alpha+\beta)^{2} (\alpha+\beta+1)}
+      & \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha) \Gamma(\beta)} x^{\alpha-1} (1-x)^{\beta-1}
+\\
+\GammaDistribution{\alpha}{\beta}
+  & \frac{\alpha}{\beta}
+    & \frac{\alpha}{\beta^{2}}
+      & \frac{\beta^{\alpha}}{\Gamma(\alpha)} x^{\alpha-1} e^{-\beta x}
+\\
+\bottomrule
+\end{tblr}
+\end{table}

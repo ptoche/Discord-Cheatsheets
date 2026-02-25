@@ -1,0 +1,46 @@
+\documentclass[9pt,landscape,a4paper]{extarticle}
+%\documentclass[10pt,landscape,a4paper]{article}
+\usepackage[landscape,twocolumn,columnsep=1cm,margin=0.5cm]{geometry}
+
+% author's name
+\author{Data Science for Freaks and Geeks}
+
+% document title
+\title{MITx MicroMasters - Capstone Part 1}
+
+\date{Fall 2025 --- Updated \today}
+
+% .sty file | must be in path or in the same directory
+\usepackage{styles}
+\usepackage{maths}
+
+% set graphics path | graphicx package
+\graphicspath{{Figures/}}
+
+% always load hyperref last
+\usepackage[pdfauthor={Data Science for Freaks and Geeks},
+            pdftitle={MITx MicroMaster's Capstone Part 1}]{hyperref}
+
+% import a list of acronyms, e.g. \OLS
+\input{acronyms.tex}
+
+% Suppress section title numbers
+\SuppressSectionNumbers
+
+% Suppress section title colors
+\SuppressSectionColors
+
+\begin{document}
+\input{content/distribution}
+\input{content/conditional-probability}
+\input{content/random-variables}
+\input{content/stochastic-processes}
+\input{content/convergence-laws}
+\input{content/statistical-inference}
+\input{content/bayesian-inference}
+\input{content/hypothesis-testing}
+\input{content/estimation-methods}
+\input{content/linear-regression}
+\input{content/estimation-methods}
+\input{content/generalized-linear-models}
+\end{document}

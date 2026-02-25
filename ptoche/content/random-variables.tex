@@ -1,0 +1,47 @@
+\section{Random variables}
+
+\subsection{Properties of expectation and variance}
+
+\textbf{Law of iterated expectations:} $\E{[\E{[X \,|\, Y]}]} = \E{[X]}$
+
+\textbf{Law of total expectation:} $\E{[X]} = \int_Y \E{[X \,|\, Y = y]} f_Y(y) \difl y$
+
+\textbf{Law of total variance:} $\Var{X} = \E{[\Var{(X \,|\, Y)}]} + \Var{\E{[X \,|\, Y]}}$
+
+\subsection{Derived distributions}
+
+How to find the distribution of a function $Y = g(X)$ of a continuous r.v.\ $X$ with known distribution $f_X$:
+\[
+f_Y(y) = \diff{F_Y(y)}{y} = \diff*{\Pr{[g(X) \leq y]}}{y}  = \diff*{\int_{\set[x]{g(x) \leq y}} f_X(x) \difl x}{y}
+\]
+Two important cases:
+\begin{itemize}
+\item A linear transformation $Y = aX + b$:
+\[
+f_Y(y) = \frac{1}{\abs{a}} f_X\left(\frac{y - b}{a}\right)
+\]
+\item A monotonic transformation $Y = g(X)$, where $h(y) = g^{-1}(y)$:
+\[
+f_Y(y) = f_X\left(h(y)\right) \abs{\diff{h(y)}{y}}
+\]
+\end{itemize}
+
+\subsection{Sum of independent random variables}
+
+The PDF of the sum of two independent r.v.s is the \emph{convolution} of their PDFs.
+If $Z = X + Y$, then $f_Z(z) = \int_{\R} f_X(x) f_Y(z - x) \difl x$.
+
+One application of this is that the sum of finitely many independent normal variables is normal: $\sum_{i=1}^{n} \NormalDistribution{\mu_i}{\sigma_i^2} \sim \NormalDistribution{\sum_{i=1}^{n} \mu_i}{\sum_{i=1}^{n} \sigma_i^2}$.
+
+\subsection{Correlation and covariance}
+
+The \emph{correlation coefficient} measures the linear association between variables:
+\[
+\rho_{XY} = \frac{1}{n} \sum_{i=1}^{n} \left(\frac{X_i - \mean{X}_n}{\sigma_X}\right) \left(\frac{Y_i - \mean{Y}_n}{\sigma_Y}\right) = \frac{\Cov{(X, Y)}}{\sigma_X \sigma_Y} \in [-1, 1]
+\]
+Properties of covariance:
+\begin{itemize}
+\item $\Cov{(aX + b, Y)} = a \Cov{(X, Y)}$
+\item $\Cov{(X, Y + Z)} = \Cov{(X, Y)} + \Cov{(Y, Z)}$
+\item $\Var{\left(\sum_{i=1}^{n} X_i\right)} = \sum_{i=1}^{n} \Var{X_i} + \sum_{\set[(i, j)]{i \neq j}} \Cov{(X_i, X_j)}$
+\end{itemize}

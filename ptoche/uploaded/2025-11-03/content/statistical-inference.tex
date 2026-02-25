@@ -1,0 +1,26 @@
+\section{Statistical inference}
+
+\subsection{Models and estimation}
+
+For a statistical model $\left(E, \set{\Pr_\theta}_{\theta \in \Theta}\right)$:
+\begin{itemize}
+\item The model is \emph{parametric} if $\Theta \subseteq \R^m$ and $\Pr_\theta$ is uniquely specified by $\theta$.
+\item $\theta$ is \emph{identifiable} if the map $\theta \mapsto \Pr_\theta$ is injective.
+\end{itemize}
+
+For an associated i.i.d.\ sample $X_{i \in \range{n}}$ drawn from a distribution $\Pr_\theta$:
+\begin{itemize}
+\item A \emph{statistic} is any measurable function of the sample.
+\item An \emph{estimator} of $\theta$ is a statistic whose expression does not depend on $\theta$.
+\item An estimator $\hat{\theta}_n$\dots
+\begin{itemize}
+\item is \emph{weakly consistent} if $\hat{\theta}_n \pConverge \theta$.
+\item is \emph{asymptotically normal} if $\sqrt{n} (\hat{\theta}_n - \theta) \dConverge \NormalDistribution{0}{\sigma^2}$, with \emph{asymptotic variance }$\sigma^2$.
+\item has \emph{bias} equal to $\E{[\hat{\theta}_n]} - \theta$.
+\item has \emph{quadratic risk} equal to $\E{[\abs*{\hat{\theta}_n - \theta}^2]} = \text{variance} + \text{bias}^2$.
+\end{itemize}
+\end{itemize}
+
+\subsection{Delta method}
+Let $(Z_n)$ be a sequence of r.v.s that are asymptotically normal around $\theta$ with variance $\sigma^2$.
+If the function $g$ is continuously differentiable at $\theta$, then $g(Z_n) \pConverge g(\theta)$ and $g(Z_n)$ is asymptotically normal around $g(\theta)$ with variance $g'(\theta)^2 \sigma^2$.

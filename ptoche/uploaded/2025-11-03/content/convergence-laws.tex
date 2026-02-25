@@ -1,0 +1,42 @@
+\section{Convergence and limit theorems}
+
+\subsection{Useful inequalities}
+
+\textbf{Markov:} For $X \geq 0$ with $\E{[X]} > 0$ and $t > 0$, $\Pr{[X \geq t]} \leq \E{[X]} / t$.
+
+\textbf{Chebyshev:} For $X$ with $\E{[X]} < \infty$ and $t > 0$, $\Pr{[\abs{X - \E{[X]}} \geq t]} \leq (\Var{X}) / t^2$.
+
+\textbf{Hoeffding:} Given $X_{i \in \range{n}} \iid X$ that are a.s.\ bounded, i.e., there exist $a < b$ such that $\Pr{[X_i \notin [a, b]]} = 0$, then $\Pr{\left[\abs{\mean{X}_n - \E{[X]}} \geq \epsilon\right]} \leq 2 \exp{\left(-\frac{2 n \epsilon^2}{(b - a)^2}\right)}$ for all $\epsilon > 0$.
+
+\subsection{Modes of convergence}
+
+Let $(T_n)$ be a sequence of r.v.s and $T$ another r.v., all in $\R$.
+\begin{enumerate}
+\item \emph{Convergence almost surely:} $T_n \asConverge T \iff \Pr{\left[\set[\omega]{T_n(\omega) \rightarrow T(\omega)}\right]} = 1$
+\item \emph{Convergence in probability:} $T_n \pConverge T \iff \Pr{[\abs{T_n - T} \geq \epsilon]} \rightarrow 0$ for all $\epsilon > 0$
+\item \emph{Convergence in distribution:} $T_n \dConverge T \iff \E{[f(T_n)]} \rightarrow \E{[f(T)]}$ for all continuous and bounded $f$
+\end{enumerate}
+(1) implies (2) implies (3), but (3) implies (2) only if the limit $T$ has a density: $T_n \dConverge T \implies \Pr{[a \leq T_n \leq b]} \rightarrow \Pr{[a \leq T \leq b]}$.
+
+\textbf{Continuous mapping theorem:} Continuous functions preserve limits.
+
+\subsection{Limit theorems}
+
+Let $X_{i \in \range{n}} \iid X$ with finite mean $\mu$ and sample mean $\mean{X}_n$.
+\begin{itemize}
+\item \textbf{Strong LLN:}
+$\mean{X}_n \asConverge \mu$, i.e., $\Pr{\left[\lim_{n \rightarrow \infty} \mean{X}_n = \mu \right]} = 1$.
+\item \textbf{Weak LLN:}
+If $\Var{X} < \infty$, then $\mean{X}_n \pConverge \mu$, i.e., $\Pr{[\abs{\mean{X}_n - \mu} \geq \epsilon]} \rightarrow 0$ for all $\epsilon > 0$.
+\end{itemize}
+
+\textbf{Central limit theorem:}
+If, in addition, $\Var{X} = \sigma^2 < \infty$, then the sample mean is asymptotically normal, i.e., $\sqrt{n} (\mean{X}_n - \mu) \dConverge \NormalDistribution{0}{\sigma^2}$.
+
+\textbf{Slutsky's theorem:} Let $(T_n)$ and $(U_n)$ be sequences of r.v.s such that $T_n \dConverge T$ and $U_n \pConverge u \in \R$.
+Then
+\begin{itemize}
+\item $T_n + U_n \dConverge T + u$
+\item $T_n U_n \dConverge Tu$
+\item $\frac{T_n}{U_n} \dConverge \frac{T}{u}$ if $u \neq 0$.
+\end{itemize}

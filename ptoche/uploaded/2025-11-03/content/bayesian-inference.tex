@@ -1,0 +1,27 @@
+\section{Bayesian inference}
+Recall \textbf{Bayes' theorem:}
+\[
+\Pr{(A_i \,|\, B)}
+  = \frac{\Pr{(A_i)} \Pr{(B \,|\, A_i)}}{\sum_j \Pr{(A_j) \Pr{(B \,|\, A_j)}}}
+  = \frac{\Pr{(A)} \Pr{(B \,|\, A)}}{\Pr{(B)}} \quad \text{if only one event } A
+\]
+
+Let $\pi(\theta)$ and $\pi(\theta \,|\, X)$ be the prior and posterior distributions, respectively.
+\begin{itemize}
+\item \textbf{Bayes estimate:} $\hat{\theta}^{(\pi)} = \int_\Theta \difl \pi(\theta \,|\, X)$
+\item \textbf{Maximum a posteriori estimate:} $\hat{\theta}^{\textrm{MAP}} = \argmax_{\theta \in \Theta} \pi(\theta \,|\, X)$.
+\item \textbf{Least mean squares estimate:} $\hat{\theta}^{\textrm{LMS}} = \E{[\Theta \,|\, X = x]}$.
+\end{itemize}
+Ways to evaluate a Bayesian estimator (can be unconditional or conditional):
+\begin{itemize}
+\item \textbf{Probability of error:} $\Pr{[\hat{\theta} \neq \theta]}$
+\item \textbf{Mean squared error:} $\E{[(\hat{\theta} - \theta)^2]}$
+\end{itemize}
+
+On prior and posterior distributions:
+\begin{itemize}
+\item If the PDF of $X$ can be written $f(x) = c e^{-(\alpha x^2 + \beta x + \gamma)}$ with $\alpha > 0$, then $X$ is normal with mean $-\beta / 2\alpha$ and variance $1 / 2\alpha$.
+\item An \emph{improper prior} is measurable, nonnegative, but not integrable.
+\item Example: Bernoulli experiment with a beta prior parameterized $(\alpha, \beta)$ has a beta posterior with updated parameters $\left(\alpha + \sum_{i=1}^{n} X_i, \beta + n - \sum_{i=1}^{n} X_i\right)$.
+\item Jeffreys prior: A \emph{non-informative prior}, i.e., lacking prior information about a parameter, defined $\pi_J(\theta) \propto \sqrt{\det{I(\theta)}}$.
+\end{itemize}

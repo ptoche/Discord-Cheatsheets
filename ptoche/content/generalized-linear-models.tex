@@ -1,0 +1,18 @@
+\section{Generalized linear models}
+Relax the assumptions of linear regression: Assume that $Y \,|\, X = x$ is distributed according to some $\Pr$ and that $g(\mu(x)) = x^\top \beta$, where $g$ is the \emph{link function} and $\mu(x) = \E{[Y \,|\, X = x]}$ is the regression function.
+
+\emph{$k$-parameter exponential family:} A family of distributions $\set[\Pr_\theta]{\theta \in \Theta \subset \R^k}$ such that there exist real-valued functions $\eta_1, \eta_2, \dots, \eta_k$ and $B$ of $\theta$ and $T_1, T_2, \dots, T_k$ and $h$ of $y \in \R^q$ such that the density of $\Pr_\theta$ can be written
+\[
+f_\theta(y) = \exp{\left[\sum_{i=1}^{k} \eta_i(\theta) T_i(y) - B(\theta)\right]} h(y)
+\]
+
+The \emph{canonical exponential family} ($k = 1$, $y \in \R$) for some known functions $b$ and $c$ is
+\[
+f_\theta(y) = \exp{\left[\frac{y \theta - b(\theta)}{\phi} + c(y, \phi)\right]}
+\]
+
+If the \emph{dispersion parameter} $\phi$ is known, then this is a one-parameter exponential family with $\theta$ the canonical parameter.
+It can be derived from log-likelihood that $\E{[Y]} = b'(\theta)$ and $\Var{Y} = b''(\theta) \phi$.
+
+If $g$ is monotone increasing and differentiable, then $\mu = g^{-1}\left(X^\top \beta\right)$.
+The \emph{canonical link} is $g(\mu) = \theta = (b')^{-1}(\mu)$ for the canonical parameter $\theta$.

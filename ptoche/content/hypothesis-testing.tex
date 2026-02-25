@@ -1,0 +1,26 @@
+\section{Hypothesis testing}
+
+\subsection{Confidence intervals}
+
+The \emph{quantile} of order $1 - \alpha$ of a r.v.\ $X$ is the number $q_\alpha$ such that $\Pr{[X \leq q_\alpha]} = 1 - \alpha$.
+
+A \emph{confidence interval} of (asymptotic) level $1 - \alpha$ for $\theta$ is any random (dependent upon the random sample) interval $\CI$, whose boundaries do not depend on $\theta$, such that $\left(\lim_{n \rightarrow \infty}\right) \Pr{[\CI \ni \theta]} \geq 1 - \alpha$ for all $\theta \in \Theta$.
+
+\subsection{Errors and p-values}
+
+The \emph{p-value} is the smallest significance level at which $H_0$ is rejected.
+\begin{itemize}
+\item \emph{Type I error:} Reject $H_0$ when $H_0$ is true.
+\item \emph{Type II error:} Fail to reject $H_0$ when $H_1$ is true.
+\item \emph{Significance level $\alpha$:} $\Pr{(\text{Type I error})} \leq \alpha$.
+\item \emph{Power:} $1 - \Pr{(\text{Type II error})}$.
+\end{itemize}
+
+\subsection{Wald test vs t-test}
+
+\begin{itemize}
+\item The t-test requires the data to be Gaussian and can only be performed on expected values.
+\item The Wald test is asymptotic; the t-test can compute non-asymptotic p-values.
+\item For large sample sizes, the quantiles of the T distribution converge to those of the standard normal distribution.
+\item In general, the Wald test is more flexible and leads to lower p-values.
+\end{itemize}

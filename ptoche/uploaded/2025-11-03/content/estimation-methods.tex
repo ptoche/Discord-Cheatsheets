@@ -1,0 +1,37 @@
+\section{Methods of estimation}
+
+\subsection{Maximum likelihood estimation}
+
+Minimize an estimate of the KL divergence between an observed distribution and a hypothesized distribution defined by a true parameter $\theta^\ast$:
+\[
+\KL{\left(\Pr_\theta, \Pr_{\theta'}\right)} = \int_E f_\theta(x) \log{\left(\frac{f_\theta(x)}{f_{\theta'}(x)}\right)} \difl x
+\]
+
+Under some technical conditions, the MLE is a weakly consistent estimator for $\theta^\ast$:
+\begin{itemize}
+\item $\theta^\ast$ is identifiable.
+\item $\theta^\ast$ is in the interior of $\Theta$.
+\item The support of $\Pr_\theta$ does not depend on $\theta$.
+\end{itemize}
+
+\subsection{Fisher information}
+
+Define the log-likelihood for one observation as $\ell(\theta) = \log{L(X, \theta)}$ and assume $\ell$ is twice differentiable.
+Under some regularity conditions, the \emph{Fisher information} is
+\[
+I(\theta) = \Var{\ell'(\theta)} = -\E{[\ell''(\theta)]}
+\]
+and, if $I(\theta) \neq 0$ in a neighborhood of $\theta^\ast$, then the MLE is asymptotically normal with variance $I(\theta^\ast)^{-1}$.
+
+Use it to construct the Wald test statistic for the MLE: $W = \sqrt{n I(\hat{\theta}^\textrm{MLE})} (\hat{\theta}^\textrm{MLE} - \theta^\ast)$.
+
+\subsection{M-estimation}
+
+Let $X_{i \in \range{n}}$ be i.i.d.\ with some unknown distribution $\Pr$ and associated parameter $\mu^\ast$ on a sample space $E$.
+An \emph{M-estimator} $\hat{\mu}$ of $\mu^\ast$ is the minimizer of an estimator of a function $\mathcal{Q}(\mu)$ such that:
+\begin{itemize}
+\item $\mathcal{Q}(\mu) = \E{[\rho(X, \mu)]}$ for some function $\rho: E \times \mathcal{M} \rightarrow \R$, where $\mathcal{M}$ is the set of all possible values for $\mu^\ast$.
+\item $\mathcal{Q}(\mu)$ attains a unique minimum at $\mu^\ast$.
+\end{itemize}
+The goal is to find a loss function $\rho$ that satisfies these properties.
+MLE is a special case of M-estimation where $\rho$ is negative (log-)likelihood.

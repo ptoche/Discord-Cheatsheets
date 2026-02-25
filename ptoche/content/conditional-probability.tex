@@ -1,0 +1,32 @@
+\section{Conditioning, independence, and counting}
+
+\subsection{Conditional probability}
+
+\subsubsection{Multiplication rule:} Given a countable set of events $\set{A_i}$,
+\[
+  \Pr{\left(\bigcap_{i=1}^n A_i\right)} = \Pr{(A_1)} \Pr{(A_2 \,|\, A_1)} \Pr{(A_3 \,|\, A_1 \cap A_2)} \cdots \Pr{\left(A_n \,\middle|\, \bigcap_{i=1}^{n-1} A_i\right)}
+\]
+
+\textbf{Law of total probability:} Given a mutually exclusive, collectively exhaustive, and countable set of events $\set{A_i}$, $\Pr{(B)} = \sum_i \Pr{(A_i)} \Pr{(B \,|\, A_i)}$.
+
+\subsection{Independence}
+
+A countable set of events $\set{A_i}$ is independent if $\Pr{\left(\bigcap_{i \in S} A_i\right)} = \prod_{i \in S} \Pr{(A_i)}$ for every subsets $S$ of the enumeration of $\set{A_i}$.
+
+\begin{itemize}
+\item $A$ and $B$ are independent iff $\Pr{(A \,|\, B)} = \Pr{(A)}$.
+\item If $A$ and $B$ are independent, so are $A$ and $B^c$ (and so are $A^c$ and $B^c$).
+\item Independence implies pairwise independence, but not vice versa.
+\item Independence does not imply conditional independence, and vice versa.
+\item If $X$ and $Y$ are independent r.v.s, then $\E{[g(X) h(Y)]} = \E{[g(X)]} \E{[h(Y)]}$ for any functions $g, h$, and $\Var{(X + Y)} = \Var{X} + \Var{Y}$.
+\end{itemize}
+
+\subsection{Counting}
+
+\begin{itemize}
+\item Permutations of $n$ objects: $n!$
+\item $k$-permutations of $n$ objects: $n! / (n - k)!$
+\item Combinations of $k$ out of $n$ objects: $n! / (k! (n - k)!)$
+\item Partitions of $n$ objects into $r$ groups with the $i$-th group having $n_i$ objects:
+$$n! / (n_1! n_2! \cdots n_r!)$$
+\end{itemize}
